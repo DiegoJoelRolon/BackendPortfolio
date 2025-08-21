@@ -1,0 +1,54 @@
+# Entorno virtual (NO lo subas nunca)
+venv/
+env/
+ENV/
+*.env
+
+# Archivos de Python compilados
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Archivos de base de datos local
+*.sqlite3
+*.db
+
+# Archivos de logs
+*.log
+
+# Configuraciones locales
+.DS_Store
+*.swp
+*.swo
+
+# Archivos de migraciones que pueden causar conflictos si no están limpios
+**/migrations/*.pyc
+**/migrations/__pycache__/
+
+# Si quieres ignorar las migraciones por completo (opcional)
+# **/migrations/*.py
+
+# Archivos de entorno/producción
+.env
+.env.*
+
+# Archivos estáticos generados
+staticfiles/
+static/
+
+# Archivos de collectstatic (producidos en producción)
+*.bak
+*.tmp
+
+# Node.js si usas React/Vite en el mismo repo
+node_modules/
+dist/
+
+# IDEs (VSCode, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Otros
+*.bak
+*.tmp
+*.orig
