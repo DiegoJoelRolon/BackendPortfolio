@@ -27,9 +27,22 @@ class ReviewViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
 
+    def get_permissions(self):
+        if self.action in ['retrieve']:
+            permission_classes = [AllowAny]  
+        else:
+            permission_classes = [IsAuthenticated]  
+        return [permission() for permission in permission_classes]
+
 class GameViewSet(viewsets.ModelViewSet):
     queryset = Game.objects.all()
     serializer_class = GameSerializer
+    def get_permissions(self):
+        if self.action in ['retrieve']:
+            permission_classes = [AllowAny]  
+        else:
+            permission_classes = [IsAuthenticated]  
+        return [permission() for permission in permission_classes]
 
 class GameGenreViewSet(viewsets.ModelViewSet):
     queryset = GameGenre.objects.all()
@@ -46,3 +59,9 @@ class CommentViewSet(viewsets.ModelViewSet):
 class ArticleViewSet(viewsets.ModelViewSet):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+    def get_permissions(self):
+        if self.action in ['retrieve']:
+            permission_classes = [AllowAny]  
+        else:
+            permission_classes = [IsAuthenticated]  
+        return [permission() for permission in permission_classes]
