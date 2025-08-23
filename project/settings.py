@@ -36,7 +36,7 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
     ),
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
     ],
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
@@ -80,16 +80,8 @@ WSGI_APPLICATION = 'project.wsgi.application'
 import dj_database_url
 DATABASES = {
     'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL')
-    ),
-    'default2': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'portfolio',           # El nombre de tu base de datos existente
-        'USER': 'postgres',         # El usuario de PostgreSQL que tiene acceso a esa base
-        'PASSWORD': 'admin',  # Su contraseña
-        'HOST': 'localhost',          # O la IP del servidor si es remoto
-        'PORT': '5432', 
-    }
+        default=os.environ.get('DATABASE_URL','postgres://postgres:admin@localhost:5432/portfolio')
+    )
 }
 
 
